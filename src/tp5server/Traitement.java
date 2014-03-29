@@ -24,6 +24,7 @@ public class Traitement {
     JFrame jf;
 
     Traitement() throws SQLException, ClassNotFoundException {
+        //on initalise le serveur
         conn = Bdd.connexion();
         ps = new Pieces(conn);
         jf = new JFrame();
@@ -33,6 +34,7 @@ public class Traitement {
     }
 
     void postResa() throws SQLException {
+        // a chaque reservation les pieces sont rafrechies
         ps = new Pieces(conn);
         f.update(ps.listePieces);
     }

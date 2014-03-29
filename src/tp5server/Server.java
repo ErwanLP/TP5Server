@@ -20,6 +20,7 @@ public class Server {
 		ServerSocket socket;
 		try {
 		socket = new ServerSocket(2009);
+                //chaque client sera dans un thread 
 		Thread t = new Thread((Runnable) new Accepter_clients(socket, conn, traitement));
 		t.start();
 		System.out.println("Server OK !");

@@ -15,6 +15,8 @@ import java.sql.SQLException;
  */
 public class Bdd {
 
+    //se conencter à la bdd
+    
     static public Connection connexion() throws SQLException, ClassNotFoundException {
         Class.forName("org.postgresql.Driver");
         System.out.println("Driver OK ! ");

@@ -61,14 +61,19 @@ class Accepter_clients implements Runnable {
                         System.out.println("cest bon");
                         os = socket.getOutputStream();
                         oos = new ObjectOutputStream(os);
+                        //on dis au client que la connexion est bien fais
                         oos.writeBoolean(true);
                         oos.flush();
+                        //on envoi les pieces
                         oos.writeObject(traitement.ps);
+                        //on lit la reservation
                         Reservation reservation = (Reservation) ois.readObject();
                         System.out.println(reservation.toString());
                         Boolean test;
+                        //on regarde si la reservation est valide
                         test = reservation.implementeReservation(conn);
                         traitement.postResa();
+                        //on envoi le resulat
                         oos.writeBoolean(test);
                         oos.flush();
                         socket.close();

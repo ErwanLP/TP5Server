@@ -29,6 +29,7 @@ public class Pieces implements Serializable
 
     }
 
+    //prend les piece dans la bdd
     public ResultSet getAllPieces(Connection conn) throws SQLException {
         try (Statement state = conn.createStatement(); ResultSet result = state.executeQuery("SELECT * FROM piece")) {
             while (result.next()) {

@@ -29,6 +29,7 @@ public class User implements Serializable {
         this.action = action;
     }
 
+    //verifie si l'utilisateur est dans la bdd
     public boolean verifBdd(Connection conn) throws SQLException {
         System.out.println("verifBdd");
 //        Statement state = conn.createStatement();
@@ -51,6 +52,7 @@ public class User implements Serializable {
 
     }
 
+    //inser l'utilisateur dans la bdd
     public boolean insertBdd(Connection conn) throws SQLException {
         System.out.println("insertBdd");
 //        Statement state = conn.createStatement();

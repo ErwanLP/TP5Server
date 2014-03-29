@@ -34,12 +34,14 @@ public class Reservation implements Serializable {
 
     }
 
+    //modifie la bdd pour une reservation
     public Boolean implementeReservation(Connection conn) throws SQLException {
         Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         String query = "SELECT * FROM piece WHERE id = " + this.pieceSelected.id;
         System.out.println(query);
         ResultSet res = state.executeQuery(query);
         res.first();
+        //on regade si il est de la place
         if (res.getInt("placedispo") >= this.nombreSelected) {
             int newPlaceDispo = res.getInt("placedispo") - this.nombreSelected;
             res.updateInt("placedispo", newPlaceDispo);
